@@ -30,6 +30,10 @@ def agregar():
         })
         return redirect(url_for("inicio"))
         
+        
+@app.route("/arch")
+def funcion():
+    return render_template("arch.html")
             
 if __name__ == '__main__':
     app.run("127.0.0.1",5000, debug=True)

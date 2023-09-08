@@ -7,7 +7,9 @@
     <link href="static/index.css" rel="stylesheet">
 </head>
 <body>
-        <form class="form" action="/registro" method="post">
+    
+    <video src="static/images/video.mp4" autoplay="true" muted preload="auto" loop></video>
+        <form class="form-register" action="/registro" method="post">
             <div>
             <h4 class="title__form">Registrate</h4>
             </div>
@@ -19,17 +21,35 @@
 
             <input class="form__input" type="email" name="correo" placeholder="Correo">
 
-            <input class="form__input" type="password" name="contrasena" placeholder="Contraseña" id="contraseña">
+            <input class="form__input" type="password" name="contrasena" placeholder="Contraseña" id="contraseña-register">
             
-            <label for="mostrar" class="form__label-mostrar" >
-                <input type="checkbox" id="mostrar" onclick="show()">
+            <label for="mostrar-register" class="form__label-mostrar" >
+                <input type="checkbox" id="mostrar-register" onclick="showRegister()">
                 Mostrar Contraseña
             </label>
             <input type="submit" class="form__submit" value="Registrar">
-
         </form>
 
-        <script src="static/index.js"></script>
+        <form action="" class="form-login" action="" method="post">
+            <div>
+            <h4 class="title__form">Inica secion</h4>
+            </div>
 
+            <input class="form__input" type="text" name="nom_usuario" placeholder="Nombre de usuario">
+
+            <input class="form__input" type="password" name="contrasena" placeholder="Contraseña" id="contraseña-login">
+            
+            <label for="mostrar-login" class="form__label-mostrar" >
+                <input type="checkbox" id="mostrar-login" onclick="showLogin()">
+                Mostrar Contraseña
+            </label>
+            <input type="submit" class="form__submit" value="Iniciar secion">
+        </form>
+        
+        
+        
+        <script src="static/index.js"></script>
+        
+        <a class="link" href="{{url_for("funcion")}}">inicia secion</a>
 </body>
 </html>
