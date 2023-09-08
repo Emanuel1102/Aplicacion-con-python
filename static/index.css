@@ -1,0 +1,97 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+:root{
+    --border-radius: 20px;
+    --height-input: 40%;
+
+}
+
+body{
+    background-color: grey;
+}
+
+.form{
+    background-color: rgb(0, 30, 68);
+    display: grid;
+    place-items: center;
+    width: 30%;
+    height: 70%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    border-radius: var(--border-radius);
+    & .title__form{
+        color: aliceblue;
+        font-size: larger;
+    }
+
+
+    .form__input{
+        width: 70%;
+        height: var(--height-input);
+        border-radius: 40em;
+        text-align: center;
+        
+    }
+
+    .form__label-mostrar{
+        position: relative;
+        bottom: 50%;
+        right: 20%;
+        color: aliceblue;
+        font-size: 90%;
+        display: flex;
+        align-items: center;
+    }
+
+    .form__submit{
+        width: 30%;
+        height: 40%;
+        border-radius: 5px;
+        border: none;
+        position: relative;
+        bottom: 35%;
+        background-image: linear-gradient(rgb(5, 51, 110), rgba(0, 0, 0, 0.829));
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: bolder;
+        color: aliceblue;
+    }
+}
+
+.form__input::placeholder{
+    color: rgb(2, 38, 105);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.form__input:focus::placeholder{
+    background-color: rgb(2, 38, 105);
+    color: rgba(240, 248, 255, 0.767);
+
+}
+
+.form__input:focus{
+    width: 80%;
+    height: auto;
+    border-style: hidden;
+    height: var(--height-input);
+    border-radius: .6em;
+    outline: 10px groove rgb(2, 38, 105);
+    background-color: rgb(2, 38, 105);
+    color: aliceblue;
+}
+
+.form__submit:hover{
+    cursor: pointer;
+    outline: double;
+    color: lightblue;
+}
+

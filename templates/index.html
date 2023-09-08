@@ -3,21 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <link href="static/index.css" rel="stylesheet">
 </head>
 <body>
-    
-    <form action="/registro" method="post">
-        <h4>Registro</h4>
-        <input type="text" name="nombre" placeholder="Nombre">
-        <input type="text" name="apellido" placeholder="Apellido">
-        <input type="text" name="nom_usuario" placeholder="Nombre de usuario">
-        <input type="email" name="correo" placeholder="Correo">
-        <input type="password" name="contrasena" placeholder="Contraseña">
-        <button  type="submit" href="{{url_for("agregar")}}"></button>
+        <form class="form" action="/registro" method="post">
+            <div>
+            <h4 class="title__form">Registrate</h4>
+            </div>
+            <input class="form__input" type="text" name="nombre" placeholder="Nombre">
 
-    </form>
+            <input class="form__input" type="text" name="apellido" placeholder="Apellido">
 
+            <input class="form__input" type="text" name="nom_usuario" placeholder="Nombre de usuario">
+
+            <input class="form__input" type="email" name="correo" placeholder="Correo">
+
+            <input class="form__input" type="password" name="contrasena" placeholder="Contraseña" id="contraseña">
+            
+            <label for="mostrar" class="form__label-mostrar" >
+                <input type="checkbox" id="mostrar" onclick="show()">
+                Mostrar Contraseña
+            </label>
+            <input type="submit" class="form__submit" value="Registrar">
+
+        </form>
+
+        <script src="static/index.js"></script>
 
 </body>
 </html>
