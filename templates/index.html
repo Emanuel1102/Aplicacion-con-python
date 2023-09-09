@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <video src="static/images/video.mp4" autoplay="true" muted preload="auto" loop></video>
+    <!--<video src="static/images/video.mp4" autoplay="true" muted preload="auto" loop></video>-->
         <form class="form-register" action="/registro" method="post">
             <div>
             <h4 class="title__form">Registrate</h4>
@@ -30,14 +30,14 @@
             <input type="submit" class="form__submit" value="Registrar">
         </form>
 
-        <form action="" class="form-login" action="" method="post">
+        <form action="/validacion" class="form-login" method="post">
             <div>
-            <h4 class="title__form">Inica secion</h4>
+            <h4 class="title__form">Inicia secion</h4>
             </div>
 
-            <input class="form__input" type="text" name="nom_usuario" placeholder="Nombre de usuario">
+            <input class="form__input" type="text" name="nom_usuario-a-validar" placeholder="Nombre de usuario">
 
-            <input class="form__input" type="password" name="contrasena" placeholder="Contraseña" id="contraseña-login">
+            <input class="form__input" type="password" name="contraseña-a-validar" placeholder="Contraseña" id="contraseña-login">
             
             <label for="mostrar-login" class="form__label-mostrar" >
                 <input type="checkbox" id="mostrar-login" onclick="showLogin()">

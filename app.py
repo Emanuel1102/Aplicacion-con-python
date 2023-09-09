@@ -31,9 +31,42 @@ def agregar():
         return redirect(url_for("inicio"))
         
         
+@app.route("/validacion", methods=["POST"])        
+def validacion():
+    usuarios=bd["usuarios"]
+    contrasenaAVlidar=request.form["contraseña-a-validar"]
+    nom_usuarioAVlidar=request.form["nom_usuario-a-validar"]
+    usuarioAVlidar=usuarios.find({"$and":[
+        {"contrasena":contrasenaAVlidar},
+        {"nom_usuario":nom_usuarioAVlidar}
+    ]})
+    if usuarioAVlidar:
+        return funcion()
+    else:
+        return notFound()
+    
+    
+    # usuarioAVlidar={
+        # "$and"
+    # }
+    
+        
 @app.route("/arch")
 def funcion():
     return render_template("arch.html")
             
+            
+@app.errorhandler(404)
+def notFound(error=None):
+    mensaje={
+        "mensaje":"no encontrado"+request.url,
+        "status":"404 Not Found"
+    }
+    Response=jsonify(mensaje)
+    Response.status=404
+    return Response
+
+
+
 if __name__ == '__main__':
     app.run("127.0.0.1",5000, debug=True)
