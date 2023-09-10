@@ -3,12 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
     <title>Document</title>
 </head>
 <body>
 
-    <a href="arch.html">arch</a>
+    <table>
+        <caption>Usuarios registrados</caption>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>apellido</th>
+                <th>nombre de usuario</th>
+                <th>Correo</th>
+                <th>contraseña</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" onclick="window.ventana.showModal()">ventana</button>
+    <dialog id="ventana">
+        <form action="" method="post">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre-a-actualizar" id="nombre">
+            <br>
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido-a-actualizar" id="apellido">
+            <br>
+            <label for="nom_usuario">Nombre de usuario</label>
+            <input type="text" name="nom_usuario-a-actualizar" id="nom_usuario">
+            <br>
+            <label for="correo">Correo</label>
+            <input type="email" name="correo-a-actualizar" id="correo">
+            <br>
+            <label for="contraseña">Contraseña</label>
+            <input type="text" name="contraseña-a-actualizar" id="contraseña">
+
+            <input type="submit" value="Actualizar">
+        </form>
+        <button onclick="window.ventana.close()">Cerrar</button>
+    </dialog>
 
 </body>
-
+<script src=""></script>
 </html>

@@ -34,26 +34,48 @@ def agregar():
 @app.route("/validacion", methods=["POST"])        
 def validacion():
     usuarios=bd["usuarios"]
-    contrasenaAVlidar=request.form["contraseña-a-validar"]
     nom_usuarioAVlidar=request.form["nom_usuario-a-validar"]
-    usuarioAVlidar=usuarios.find({"$and":[
-        {"contrasena":contrasenaAVlidar},
-        {"nom_usuario":nom_usuarioAVlidar}
-    ]})
+    contrasenaAVlidar=request.form["contraseña-a-validar"]
+    usuarioAVlidar=usuarios.find_one(
+        {"nom_usuario":nom_usuarioAVlidar},
+        {"contrasena":contrasenaAVlidar}
+    )
     if usuarioAVlidar:
-        return funcion()
+        return accedido()
     else:
         return notFound()
     
     
-    # usuarioAVlidar={
-        # "$and"
-    # }
-    
         
-@app.route("/arch")
-def funcion():
-    return render_template("arch.html")
+@app.route("/")
+def accedido():
+    usuarios=bd["usuarios"]
+    listaDeUsuarios=usuarios.find()
+    return render_template("usuarios-registrados.html",
+                           usuarios=listaDeUsuarios)
+    
+@app.route("/actualizar/<string:nombre_usuario>", methods=["POST"])
+def actualizar(nombre_usuario):
+    usuarios=bd["usuarios"]
+    nombreAActualizar=request.form["nombre-a-actualizar"]
+    apellidoAActualizar=request.form["apellido-a-actualizar"]
+    nom_usuarioAActualizar=request.form["nom_usuario-a-actualizar"]
+    correoAActualizar=request.form["correo-a-actualizar"]
+    contrasenaAActualizar=request.form["contraseña-a-actualizar"]
+    if nombreAActualizar and apellidoAActualizar and nom_usuarioAActualizar and correoAActualizar and contrasenaAActualizar:
+        usuarios.update_one({"nom_usuario":nombre_usuario},
+                        {"$set":{
+            "nombre":nombreAActualizar,
+            "apellido":apellidoAActualizar,
+            "nom_usuario":nom_usuarioAActualizar,
+            "correo":correoAActualizar,
+            "contrasena":contrasenaAActualizar
+        }})
+        Response=jsonify({"mensaje":"usuario" +nombre_usuario+ "actualizado correctamente"})
+        return redirect(url_for("accedido"))
+    else:
+        return notFound()
+
             
             
 @app.errorhandler(404)

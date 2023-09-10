@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>Usuarios</title>
+</head>
+<body>
+
+    <table>
+        <caption>Usuarios registrados</caption>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>apellido</th>
+                <th>Correo</th>
+                <th>nombre de usuario</th>
+                <th>contraseña</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{usuario._id}}</td>
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.apellido}}</td>
+                <td>{{usuario.correo}}</td>
+                <td>{{usuario.nom_usuario}}</td>
+                <td>{{usuario.contrasena}}</td>
+                <td> 
+                    <button class="boton">Actualizar datos</button>
+                    <dialog class="ventana">
+                        <form action="/actualizar/{{usuario.nom_usuario}}" method="post">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" name="nombre-a-actualizar" id="nombre" value="{{usuario.nombre}}">
+                            <br>
+                            <label for="apellido">Apellido</label>
+                            <input type="text" name="apellido-a-actualizar" id="apellido" value="{{usuario.apellido}}">
+                            <br>
+                            <label for="nom_usuario">Nombre de usuario</label>
+                            <input type="text" name="nom_usuario-a-actualizar" id="nom_usuario" value="{{usuario.nom_usuario}}">
+                            <br>
+                            <label for="correo">Correo</label>
+                            <input type="email" name="correo-a-actualizar" id="correo" value="{{usuario.correo}}">
+                            <br>
+                            <label for="contraseña">Contraseña</label>
+                            <input type="text" name="contraseña-a-actualizar" id="contraseña" value="{{usuario.contrasena}}">
+                            <br>
+                            <input type="submit" value="Actualizar">
+                        </form>
+                        <button>Cancelar</button>
+                    </dialog>     
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+<script src="static/usuarios-registrados.js"></script>
+</html>
