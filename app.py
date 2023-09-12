@@ -41,18 +41,12 @@ def validacion():
         {"contrasena":contrasenaAVlidar}
     )
     if usuarioAVlidar:
-        return accedido()
+        listaDeUsuarios=usuarios.find()
+        
+        return render_template("usuarios-registrados.html", usuarios=listaDeUsuarios)
     else:
         return notFound()
     
-    
-        
-@app.route("/")
-def accedido():
-    usuarios=bd["usuarios"]
-    listaDeUsuarios=usuarios.find()
-    return render_template("usuarios-registrados.html",
-                           usuarios=listaDeUsuarios)
     
 @app.route("/actualizar/<string:nombre_usuario>", methods=["POST"])
 def actualizar(nombre_usuario):
@@ -63,6 +57,8 @@ def actualizar(nombre_usuario):
     correoAActualizar=request.form["correo-a-actualizar"]
     contrasenaAActualizar=request.form["contraseña-a-actualizar"]
     if nombreAActualizar and apellidoAActualizar and nom_usuarioAActualizar and correoAActualizar and contrasenaAActualizar:
+        listaDeUsuarios=usuarios.find()
+        
         usuarios.update_one({"nom_usuario":nombre_usuario},
                         {"$set":{
             "nombre":nombreAActualizar,
@@ -72,7 +68,7 @@ def actualizar(nombre_usuario):
             "contrasena":contrasenaAActualizar
         }})
         Response=jsonify({"mensaje":"usuario" +nombre_usuario+ "actualizado correctamente"})
-        return redirect(url_for("accedido"))
+        return render_template("usuarios-registrados.html", usuarios=listaDeUsuarios)
     else:
         return notFound()
 
