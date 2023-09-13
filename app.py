@@ -34,16 +34,14 @@ def agregar():
 @app.route("/validacion", methods=["POST"])        
 def validacion():
     usuarios=bd["usuarios"]
-    nom_usuarioAVlidar=request.form["nom_usuario-a-validar"]
-    contrasenaAVlidar=request.form["contraseña-a-validar"]
-    usuarioAVlidar=usuarios.find_one(
-        {"nom_usuario":nom_usuarioAVlidar},
-        {"contrasena":contrasenaAVlidar}
+    nom_usuarioAValidar=request.form["nom_usuario-a-validar"]
+    contrasenaAValidar=request.form["contraseña-a-validar"]
+    usuarioAValidar=usuarios.find_one(
+        {"nom_usuario":nom_usuarioAValidar},
+        {"contrasena":contrasenaAValidar}
     )
-    if usuarioAVlidar:
-        listaDeUsuarios=usuarios.find()
-        
-        return render_template("usuarios-registrados.html", usuarios=listaDeUsuarios)
+    if usuarioAValidar:        
+        return redirect(url_for("accedido"))
     else:
         return notFound()
     
@@ -57,8 +55,6 @@ def actualizar(nombre_usuario):
     correoAActualizar=request.form["correo-a-actualizar"]
     contrasenaAActualizar=request.form["contraseña-a-actualizar"]
     if nombreAActualizar and apellidoAActualizar and nom_usuarioAActualizar and correoAActualizar and contrasenaAActualizar:
-        listaDeUsuarios=usuarios.find()
-        
         usuarios.update_one({"nom_usuario":nombre_usuario},
                         {"$set":{
             "nombre":nombreAActualizar,
@@ -68,10 +64,26 @@ def actualizar(nombre_usuario):
             "contrasena":contrasenaAActualizar
         }})
         Response=jsonify({"mensaje":"usuario" +nombre_usuario+ "actualizado correctamente"})
-        return render_template("usuarios-registrados.html", usuarios=listaDeUsuarios)
+        return redirect(url_for("accedido"))
     else:
         return notFound()
 
+
+@app.route("/eliminar/<string:nombre_usuario>")
+def eliminar(nombre_usuario):
+    usuarios=bd["usuarios"]
+    usuarios.delete_one({"nom_usuario":nombre_usuario})
+    return redirect(url_for("accedido"))
+
+
+@app.route("/accedido")
+def accedido():
+    usuarios=bd["usuarios"]
+    listaDeUsuarios=usuarios.find()
+    return render_template("usuariosRegistrados.html", usuarios=listaDeUsuarios)
+
+    
+    
             
             
 @app.errorhandler(404)
