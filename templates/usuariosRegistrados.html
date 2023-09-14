@@ -24,14 +24,14 @@
         <tbody>
             {% for usuario in usuarios %}
             <tr class="fila">
-                <td class="esquina-inferior-izquierda">{{usuario._id}}</td>
+                <td>{{usuario._id}}</td>
                 <td>{{usuario.nombre}}</td>
                 <td>{{usuario.apellido}}</td>
                 <td>{{usuario.correo}}</td>
                 <td>{{usuario.nom_usuario}}</td>
                 <td>{{usuario.contrasena}}</td>
-                <td> 
-                    <button class="boton">Actualizar datos</button>
+                <td class="celda-actualizar"> 
+                    <button class="boton-ventana">Actualizar datos</button>
                     <dialog class="ventana">
                         <form action="/actualizar/{{usuario.nom_usuario}}" method="post">
                             <label for="nombre">Nombre</label>
@@ -49,13 +49,13 @@
                             <label for="contraseña">Contraseña</label>
                             <input type="text" name="contraseña-a-actualizar" id="contraseña" value="{{usuario.contrasena}}">
                             <br>
-                            <input type="submit" value="Actualizar">
+                            <input type="submit" value="Actualizar" class="boton-actualizar">
                         </form>
-                        <button>Cancelar</button>
+                        <button class="boton-cancelar">Cancelar</button>
                     </dialog>     
                 </td>
-                <td class="esquina-inferior-derecha"> 
-                    <a href="{{url_for("eliminar", nombre_usuario=usuario.nom_usuario)}}">Eliminar</a> 
+                <td class="celda-eliminar"> 
+                    <a href="{{url_for("eliminar", nombre_usuario=usuario.nom_usuario)}}" class="boton-eliminar">Eliminar</a> 
                 </td>
 
             </tr>

@@ -4,44 +4,102 @@ html{
     background-size: cover;
 }
 
+body{
+    display: flex;
+    justify-content: center;
+}
+
 table, caption, th, td{
-    border: 1px solid aliceblue;
+    border: 5px groove aqua;
 }
 
 table{
     color: aliceblue;
-    background-image:  linear-gradient(40deg, rgba(0, 255, 255, 0.596),rgba(47, 0, 128, 0.413), rgba(127, 255, 212, 0.526));
+    background-image:  linear-gradient(40deg, rgb(75, 119, 119),rgba(47, 0, 128, 0.413), rgba(127, 255, 212, 0.526));
     width: 90%;
     border-collapse: collapse;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
 }
 
 caption{
-    background-image:  linear-gradient(40deg, rgba(0, 255, 255, 0.596),rgba(47, 0, 128, 0.413), rgba(127, 255, 212, 0.526));
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    background-image:  linear-gradient(40deg, rgba(112, 207, 207, 0.596),rgba(47, 0, 128, 0.413), rgba(127, 255, 212, 0.526));
+    border-top-left-radius:  18px;
+    border-top-right-radius: 18px;
+    line-height: 3em;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 2em;
 
 }
 
-th, td{
+th{
+    font-family: serif;
+    font-weight: bolder;
+    font-size:  x-large;
     text-align: center;
-    margin: 0%;
-    width: auto;
-}
-
-.fila:last-of-type{
-
-    .esquina-inferior-derecha{
-        border-bottom-right-radius: 20px;
-        background-color: aliceblue;
-    }
-    
-    .esquina-inferior-izquierda{
-        border-bottom-left-radius: 20px;
-        background-color: red;
-    }
+    padding: 1em 2em;
 }
 
 
 
+td{
+    text-align: center;
+    padding: .8em 2em;
+}
+
+td:hover{
+    background-color: rgba(173, 216, 230, 0.765);
+    color: darkblue;
+}
+
+
+
+.fila:hover{
+    background-color: rgba(173, 216, 230, 0.407);
+    transition: .2s;
+}
+
+.boton-ventana{
+    border: 1px groove rgb(250, 250, 250);
+    padding: .6em;
+    border-radius: 1.5em;
+    background-color: rgba(0, 42, 212, 0.805);
+    color: aliceblue;
+    font-size: .9em;
+    /* border: none; */
+}
+
+.boton-ventana:hover{
+    outline: 2px groove rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.boton-ventana:active{
+    color: darkblue;
+    background-color: lightblue;
+
+}
+
+.celda-actualizar{
+    padding: .8em .5em;
+}
+
+.celda-eliminar{
+    padding: .8em 1em;
+}
+
+.boton-eliminar{
+    text-decoration: none;
+    color: aliceblue;
+    padding: .5em;
+    background-color: red;
+    border-radius: 1.5em;
+    color: aliceblue;
+    outline: 2px groove rgba(255, 255, 255, 0.689);
+
+
+}
+
+.boton-eliminar:hover{
+    outline: 2px groove rgba(0, 0, 0, 0.689);
+}

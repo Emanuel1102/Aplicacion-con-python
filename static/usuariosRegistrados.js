@@ -1,4 +1,4 @@
-document.querySelectorAll(".boton").forEach(function(boton){
+document.querySelectorAll(".boton-ventana").forEach(function(boton){
     boton.addEventListener("click", function(){
         this.nextElementSibling.showModal()
     })
