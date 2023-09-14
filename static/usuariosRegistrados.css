@@ -1,3 +1,47 @@
-table, caption, th, td{
-    border: 1px solid black;
+html{
+    background-image:  url(images/fondoUsuarios.jpg);    
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+table, caption, th, td{
+    border: 1px solid aliceblue;
+}
+
+table{
+    color: aliceblue;
+    background-image:  linear-gradient(40deg, rgba(0, 255, 255, 0.596),rgba(47, 0, 128, 0.413), rgba(127, 255, 212, 0.526));
+    width: 90%;
+    border-collapse: collapse;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+caption{
+    background-image:  linear-gradient(40deg, rgba(0, 255, 255, 0.596),rgba(47, 0, 128, 0.413), rgba(127, 255, 212, 0.526));
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+th, td{
+    text-align: center;
+    margin: 0%;
+    width: auto;
+}
+
+.fila:last-of-type{
+
+    .esquina-inferior-derecha{
+        border-bottom-right-radius: 20px;
+        background-color: aliceblue;
+    }
+    
+    .esquina-inferior-izquierda{
+        border-bottom-left-radius: 20px;
+        background-color: red;
+    }
+}
+
+
+

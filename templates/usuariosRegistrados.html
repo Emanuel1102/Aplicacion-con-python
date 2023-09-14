@@ -23,8 +23,8 @@
         </thead>
         <tbody>
             {% for usuario in usuarios %}
-            <tr>
-                <td>{{usuario._id}}</td>
+            <tr class="fila">
+                <td class="esquina-inferior-izquierda">{{usuario._id}}</td>
                 <td>{{usuario.nombre}}</td>
                 <td>{{usuario.apellido}}</td>
                 <td>{{usuario.correo}}</td>
@@ -54,7 +54,7 @@
                         <button>Cancelar</button>
                     </dialog>     
                 </td>
-                <td> 
+                <td class="esquina-inferior-derecha"> 
                     <a href="{{url_for("eliminar", nombre_usuario=usuario.nom_usuario)}}">Eliminar</a> 
                 </td>
 
