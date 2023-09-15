@@ -9,7 +9,8 @@
 <body>
 
     <table>
-        <caption>Usuarios registrados</caption>
+        <caption>Usuarios registrados <a href="{{url_for("cerrarSecion")}}">Cerrar secion</a></caption>
+        
         <thead>
             <tr>
                 <th>id</th>
@@ -32,26 +33,45 @@
                 <td>{{usuario.contrasena}}</td>
                 <td class="celda-actualizar"> 
                     <button class="boton-ventana">Actualizar datos</button>
-                    <dialog class="ventana">
-                        <form action="/actualizar/{{usuario.nom_usuario}}" method="post">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre-a-actualizar" id="nombre" value="{{usuario.nombre}}">
-                            <br>
-                            <label for="apellido">Apellido</label>
-                            <input type="text" name="apellido-a-actualizar" id="apellido" value="{{usuario.apellido}}">
-                            <br>
-                            <label for="nom_usuario">Nombre de usuario</label>
-                            <input type="text" name="nom_usuario-a-actualizar" id="nom_usuario" value="{{usuario.nom_usuario}}">
-                            <br>
-                            <label for="correo">Correo</label>
-                            <input type="email" name="correo-a-actualizar" id="correo" value="{{usuario.correo}}">
-                            <br>
-                            <label for="contraseña">Contraseña</label>
-                            <input type="text" name="contraseña-a-actualizar" id="contraseña" value="{{usuario.contrasena}}">
-                            <br>
-                            <input type="submit" value="Actualizar" class="boton-actualizar">
-                        </form>
-                        <button class="boton-cancelar">Cancelar</button>
+                    <dialog class="ventana" open>
+                        <div class="container-form">
+                            <form class="form" action="/actualizar/{{usuario.nom_usuario}}" method="post">
+                                <h4 class="title-form">{{usuario.nom_usuario}}</h4>
+                                <div class="container-label-input">
+                                    <label class="form__label" for="nombre">Nombre</label>
+                                    <br>
+                                    <input class="form__input" type="text" name="nombre-a-actualizar" id="nombre" value="{{usuario.nombre}}">
+                                </div>
+                            
+                                <div class="container-label-input">
+                                    <label class="form__label" for="apellido">Apellido</label>
+                                    <br>
+                                    <input class="form__input" type="text" name="apellido-a-actualizar" id="apellido" value="{{usuario.apellido}}">
+                                </div>
+                            
+                                <div class="container-label-input">
+                                    <label class="form__label" for="nom_usuario">Nombre de usuario</label>
+                                    <br>
+                                    <input class="form__input" type="text" name="nom_usuario-a-actualizar" id="nom_usuario" value="{{usuario.nom_usuario}}">
+                                </div>
+                            
+                                <div class="container-label-input">
+                                    <label class="form__label" for="correo">Correo</label>
+                                    <br>
+                                    <input class="form__input" type="email" name="correo-a-actualizar" id="correo" value="{{usuario.correo}}">
+                                </div>
+                                
+                                <div class="container-label-input">
+                                    <label class="form__label" for="contraseña">Contraseña</label>
+                                    <br>
+                                    <input class="form__input" type="text" name="contraseña-a-actualizar" id="contraseña" value="{{usuario.contrasena}}">
+                                </div>
+                                <div>
+                                    <input class="form_submit" type="submit" value="Actualizar" class="boton-actualizar">
+                                </div>
+                            </form>
+                            <button class="boton-cerrar">X</button>
+                        </div>
                     </dialog>     
                 </td>
                 <td class="celda-eliminar"> 

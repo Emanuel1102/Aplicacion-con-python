@@ -82,6 +82,10 @@ def accedido():
     listaDeUsuarios=usuarios.find()
     return render_template("usuariosRegistrados.html", usuarios=listaDeUsuarios)
 
+
+@app.route("/")
+def cerrarSecion():
+    return redirect(url_for("inicio"))
     
     
             

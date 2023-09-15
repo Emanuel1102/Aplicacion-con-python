@@ -27,27 +27,48 @@
     </table>
 
     <button type="button" onclick="window.ventana.showModal()">ventana</button>
-    <dialog id="ventana">
-        <form action="" method="post">
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre-a-actualizar" id="nombre">
-            <br>
-            <label for="apellido">Apellido</label>
-            <input type="text" name="apellido-a-actualizar" id="apellido">
-            <br>
-            <label for="nom_usuario">Nombre de usuario</label>
-            <input type="text" name="nom_usuario-a-actualizar" id="nom_usuario">
-            <br>
-            <label for="correo">Correo</label>
-            <input type="email" name="correo-a-actualizar" id="correo">
-            <br>
-            <label for="contraseña">Contraseña</label>
-            <input type="text" name="contraseña-a-actualizar" id="contraseña">
+    <dialog class="ventana" open>
+        <form action="/actualizar/{{usuario.nom_usuario}}" method="post">
+            <div>
+                <div>
+                    <label for="nombre">Nombre</label>
+                </div>
+            <input type="text" name="nombre-a-actualizar" id="nombre" value="{{usuario.nombre}}">
+            </div>
 
-            <input type="submit" value="Actualizar">
+            <div>
+                <div>
+                    <label for="apellido">Apellido</label>
+                </div>
+                <input type="text" name="apellido-a-actualizar" id="apellido" value="{{usuario.apellido}}">
+            </div>
+
+            <div>
+                <div>
+                    <label for="nom_usuario">Nombre de usuario</label>
+                </div>
+                <input type="text" name="nom_usuario-a-actualizar" id="nom_usuario" value="{{usuario.nom_usuario}}">
+            </div>
+
+            <div>
+                <div>
+                    <label for="correo">Correo</label>
+                </div>
+                <input type="email" name="correo-a-actualizar" id="correo" value="{{usuario.correo}}">
+            </div>
+            
+            <div>
+                <div>
+                    <label for="contraseña">Contraseña</label>
+                </div>
+                <input type="text" name="contraseña-a-actualizar" id="contraseña" value="{{usuario.contrasena}}">
+            </div>
+            
+
+            <input type="submit" value="Actualizar" class="boton-actualizar">
         </form>
-        <button onclick="window.ventana.close()">Cerrar</button>
-    </dialog>
+        <button class="boton-cancelar">Cancelar</button>
+    </dialog>     
 
 </body>
 <script src=""></script>

@@ -45,11 +45,13 @@ th{
 td{
     text-align: center;
     padding: .8em 2em;
+    font-size: 1.1em;
 }
 
-td:hover{
+td:hover:not(.celda-actualizar, .celda-eliminar){
     background-color: rgba(173, 216, 230, 0.765);
     color: darkblue;
+    transition: .2s;
 }
 
 
@@ -66,7 +68,6 @@ td:hover{
     background-color: rgba(0, 42, 212, 0.805);
     color: aliceblue;
     font-size: .9em;
-    /* border: none; */
 }
 
 .boton-ventana:hover{
@@ -80,6 +81,79 @@ td:hover{
 
 }
 
+.ventana{
+    border-radius: 1em;
+    background-color: rgba(173, 216, 230, 0.808);
+    width: 50%;
+    height: 60%;
+    font-size: 1.4em;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    margin: auto;
+    background-image: linear-gradient(40deg, rgba(0, 255, 255, 0.596),rgba(47, 0, 128, 0.413), rgba(127, 255, 212, 0.526));
+
+}
+
+.container-form{
+    height: 100%;
+    position: relative;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    margin: auto;
+}
+
+.form{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    margin: auto;
+    display: grid;
+    place-items: center;
+
+}
+
+.title-form{
+    margin: 0%;
+}
+
+.container-label-input{
+    background-color: rgba(0, 255, 255, 0.473);
+    border-radius: 1em;
+    width: 40%;
+    text-align: center;
+    
+    .form__input{
+        width: 70%;
+        text-align: center;
+        font-size: .8em;
+        border-radius: 1em;
+        background-color: transparent;
+        color: rgb(255, 255, 255);
+        border: .4em groove darkcyan;
+        border-top: none;
+    }
+
+    .form__label{
+
+    }
+
+    
+}
+
+.boton-cerrar{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+}
+
+
 .celda-actualizar{
     padding: .8em .5em;
 }
@@ -90,11 +164,10 @@ td:hover{
 
 .boton-eliminar{
     text-decoration: none;
-    color: aliceblue;
     padding: .5em;
     background-color: red;
-    border-radius: 1.5em;
     color: aliceblue;
+    border-radius: 1.5em;
     outline: 2px groove rgba(255, 255, 255, 0.689);
 
 
@@ -102,4 +175,10 @@ td:hover{
 
 .boton-eliminar:hover{
     outline: 2px groove rgba(0, 0, 0, 0.689);
+}
+
+.boton-eliminar:active{
+    color: red;
+    background-color: aliceblue;
+    transform: scale(1.5);
 }
