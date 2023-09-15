@@ -36,9 +36,10 @@ def validacion():
     usuarios=bd["usuarios"]
     nom_usuarioAValidar=request.form["nom_usuario-a-validar"]
     contrasenaAValidar=request.form["contraseña-a-validar"]
+    
     usuarioAValidar=usuarios.find_one(
-        {"nom_usuario":nom_usuarioAValidar},
-        {"contrasena":contrasenaAValidar}
+        {"nom_usuario":nom_usuarioAValidar,
+         "contrasena":contrasenaAValidar}
     )
     if usuarioAValidar:        
         return redirect(url_for("accedido"))

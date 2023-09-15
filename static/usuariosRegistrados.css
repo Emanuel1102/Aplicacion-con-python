@@ -84,7 +84,7 @@ td:hover:not(.celda-actualizar, .celda-eliminar){
 .ventana{
     border-radius: 1em;
     background-color: rgba(173, 216, 230, 0.808);
-    width: 50%;
+    width: 30%;
     height: 60%;
     font-size: 1.4em;
     position: absolute;
@@ -93,7 +93,7 @@ td:hover:not(.celda-actualizar, .celda-eliminar){
     bottom: 0%;
     left: 0%;
     margin: auto;
-    background-image: linear-gradient(40deg, rgba(0, 255, 255, 0.596),rgba(47, 0, 128, 0.413), rgba(127, 255, 212, 0.526));
+    background-image: linear-gradient(40deg, rgba(0, 255, 255, 0.337),rgba(47, 0, 128, 0.342), rgba(127, 255, 212, 0.331));
 
 }
 
@@ -126,7 +126,7 @@ td:hover:not(.celda-actualizar, .celda-eliminar){
 .container-label-input{
     background-color: rgba(0, 255, 255, 0.473);
     border-radius: 1em;
-    width: 40%;
+    width: 70%;
     text-align: center;
     
     .form__input{
@@ -140,8 +140,12 @@ td:hover:not(.celda-actualizar, .celda-eliminar){
         border-top: none;
     }
 
-    .form__label{
+    .form__input:focus{
+        outline: none;
+    }
 
+    .form__label{
+        font-style: italic;
     }
 
     
@@ -151,11 +155,49 @@ td:hover:not(.celda-actualizar, .celda-eliminar){
     position: absolute;
     top: 0%;
     right: 0%;
+    background-color: rgb(192, 13, 13);
+    color: aliceblue;
+    width:  2.5em;
+    height: 2em;
+    font-size: .6em;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
+.boton-cerrar:hover{
+    background-color: rgb(173, 0, 0);
+}
 
 .celda-actualizar{
     padding: .8em .5em;
+}
+
+.form_submit{
+    background-image: linear-gradient(rgba(5, 50, 110, 0.662), rgba(0, 0, 0, 0.829));
+    color: aliceblue;
+    font-size: 1rem;
+    width:  6rem;
+    height: 2rem;
+    border-radius: .5em;
+    border: none;
+    outline:  double white;
+    cursor: pointer;
+}
+
+.form_submit:hover{
+    cursor: pointer;
+    color: lightblue;
+    outline: double lightblue;
+    background-color: rgb(0, 0, 0);
+    transform: scale(1.3);
+    transition: 70ms;
+}
+
+.form_submit:active{
+    background-image: linear-gradient(rgb(0, 0, 0), rgb(5, 51, 110));
+    color: aliceblue;
+    transform: scale(1  );
+    transition: 70ms;
 }
 
 .celda-eliminar{
@@ -181,4 +223,8 @@ td:hover:not(.celda-actualizar, .celda-eliminar){
     color: red;
     background-color: aliceblue;
     transform: scale(1.5);
+}
+
+.cerrar-secion{
+    color: aliceblue;
 }

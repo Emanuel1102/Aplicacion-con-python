@@ -7,9 +7,9 @@
     <title>Usuarios</title>
 </head>
 <body>
-
+    <a href="{{url_for("cerrarSecion")}}" class="cerrar-secion">Cerrar secion</a>
     <table>
-        <caption>Usuarios registrados <a href="{{url_for("cerrarSecion")}}">Cerrar secion</a></caption>
+        <caption>Usuarios registrados</caption>
         
         <thead>
             <tr>
@@ -33,7 +33,7 @@
                 <td>{{usuario.contrasena}}</td>
                 <td class="celda-actualizar"> 
                     <button class="boton-ventana">Actualizar datos</button>
-                    <dialog class="ventana" open>
+                    <dialog class="ventana">
                         <div class="container-form">
                             <form class="form" action="/actualizar/{{usuario.nom_usuario}}" method="post">
                                 <h4 class="title-form">{{usuario.nom_usuario}}</h4>
@@ -67,7 +67,7 @@
                                     <input class="form__input" type="text" name="contraseña-a-actualizar" id="contraseña" value="{{usuario.contrasena}}">
                                 </div>
                                 <div>
-                                    <input class="form_submit" type="submit" value="Actualizar" class="boton-actualizar">
+                                    <input class="form_submit" type="submit" value="Actualizar">
                                 </div>
                             </form>
                             <button class="boton-cerrar">X</button>
